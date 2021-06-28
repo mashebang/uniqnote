@@ -1,0 +1,5 @@
+# ninja log v5
+0	426	1623729678	com.github.yourusername.yourrepositoryname@exe/src/Application.c	8da08810d71d6afd
+427	623	1623729678	com.github.yourusername.yourrepositoryname@exe/meson-generated_src_Application.c.o	78cc4d8fadea30d2
+624	734	1623729678	com.github.yourusername.yourrepositoryname	6399b809bc7b2c0e
+3	3547	0	meson-install	9bd7faa9472bf40f
