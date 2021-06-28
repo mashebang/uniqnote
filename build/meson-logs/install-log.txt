@@ -1,0 +1,5 @@
+# List of files installed by Meson
+# Does not contain files installed by custom scripts.
+/usr/bin/com.github.yourusername.yourrepositoryname
+/usr/share/applications/com.github.yourusername.yourrepositoryname.desktop
+/usr/share/metainfo/com.github.yourusername.yourrepositoryname.appdata.xml
