@@ -6,9 +6,28 @@ public class MyApp : Gtk.Application {
         );
     }
 
+    void save_on_file (Gtk.TextBuffer buffer) {
+        File file = File.new_for_path (".content.md");
+        try {
+            if (file.query_exists ()) {
+                try {
+                    file.delete ();
+                } catch (Error e) {
+                    stdout.printf ("Error: %s\n", e.message);
+                }
+            }
+            var data_stream = new DataOutputStream (file.create(FileCreateFlags.REPLACE_DESTINATION));
+            data_stream.put_string (buffer.text);
+
+        } catch (Error e) {
+            print ("Error: %s \n", e.message);
+        }
+	}
+
     protected override void activate () {
         var textarea = new Gtk.TextView();
         var buffer = textarea.get_buffer();
+        buffer.changed.connect(this.save_on_file);
         File file = File.new_for_path (".content.md");
 
         try {
@@ -37,9 +56,6 @@ public class MyApp : Gtk.Application {
         main_window.add (textarea);
         main_window.show_all ();
 
-        Gdk.Event.handler_set((data) => {
-            print("event");
-        });
     }
 
     public static int main (string[] args) {
